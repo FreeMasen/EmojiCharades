@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+        let information = NSDictionary(contentsOfFile: path!)
+        let id = information!["Bundle identifier"]
+        print(information)
     }
 
     override func didReceiveMemoryWarning() {

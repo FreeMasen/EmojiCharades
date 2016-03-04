@@ -33,4 +33,10 @@ class EmojiCharadesTests: XCTestCase {
         }
     }
     
+    func testIDBundle() {
+         
+        
+        XCTAssert(path != nil,"errrrrrrrrrrrr")
+    }
+    
 }
