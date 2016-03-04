@@ -33,10 +33,11 @@ class EmojiCharadesTests: XCTestCase {
         }
     }
     
-    func testIDBundle() {
-         
-        
-        XCTAssert(path != nil,"errrrrrrrrrrrr")
+    func testSendDataToFireBase() {
+        let user = User(id: 1, name: "Robert Masen", email: "r.f.masen@gmail.com", score: 0)
+        let messageContent = "🤓👈🍕💞"
+        let message = Message(sender: user.Email, reciever: "elizabethann.ashton@gmail.com ", content: messageContent)
+        FireBaseHelper.insertUser(user)
     }
     
 }

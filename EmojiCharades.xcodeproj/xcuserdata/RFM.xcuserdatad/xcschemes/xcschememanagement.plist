@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DataLayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>EmojiCharades.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>81D8458C1C8930A500BBB43F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81E6750D1C8A1B60002D7AD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81E675161C8A1B60002D7AD8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
