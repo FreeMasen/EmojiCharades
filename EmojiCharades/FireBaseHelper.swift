@@ -17,7 +17,12 @@ class FireBaseHelper {
     }
     
     static func insertNewUser(user: User) {
-        let users = ConnectToFirebase().childByAppendingPath("/emojichrades/users")
+        let users = ConnectToFirebase().childByAppendingPath("/users/\(user.Email)")
         users.setValue(user.AsDictionary())
+    }
+    
+    static func insertNewMessage(message: Message) {
+        let messages = ConnectToFirebase().childByAppendingPath("/messages/\(message.Id)")
+        messages.setValue(message.asDictionary())
     }
 }

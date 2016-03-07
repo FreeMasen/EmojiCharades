@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F999BA379D4A1A3C5AD81C4 /* Pods_EmojiCharadesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E9793CB6AF7118A730F977D /* Pods_EmojiCharadesTests.framework */; };
+		810477CF1C8A5B4D0082A76C /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810477CE1C8A5B4D0082A76C /* Seed.swift */; };
+		810477D01C8A5B4D0082A76C /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810477CE1C8A5B4D0082A76C /* Seed.swift */; };
 		81D8457A1C8930A500BBB43F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D845791C8930A500BBB43F /* AppDelegate.swift */; };
 		81D8457C1C8930A500BBB43F /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D8457B1C8930A500BBB43F /* NavController.swift */; };
 		81D8457F1C8930A500BBB43F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D8457D1C8930A500BBB43F /* Main.storyboard */; };
@@ -57,6 +59,7 @@
 		3EA282D4F9E51A61194DBBDF /* Pods-EmojiCharades.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojiCharades.release.xcconfig"; path = "Pods/Target Support Files/Pods-EmojiCharades/Pods-EmojiCharades.release.xcconfig"; sourceTree = "<group>"; };
 		6F45FE0D88FACE601B237D09 /* Pods-EmojiCharades.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojiCharades.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmojiCharades/Pods-EmojiCharades.debug.xcconfig"; sourceTree = "<group>"; };
 		71B1217AFC5A824168EE6012 /* Pods-EmojiCharadesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojiCharadesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EmojiCharadesTests/Pods-EmojiCharadesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		810477CE1C8A5B4D0082A76C /* Seed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
 		81D845761C8930A500BBB43F /* EmojiCharades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiCharades.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D845791C8930A500BBB43F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D8457B1C8930A500BBB43F /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		81D845781C8930A500BBB43F /* EmojiCharades */ = {
 			isa = PBXGroup;
 			children = (
+				810477CE1C8A5B4D0082A76C /* Seed.swift */,
 				81D845791C8930A500BBB43F /* AppDelegate.swift */,
 				81D8457D1C8930A500BBB43F /* Main.storyboard */,
 				81E6752C1C8A1B88002D7AD8 /* ViewControllers */,
@@ -488,6 +492,7 @@
 				81E675311C8A1C16002D7AD8 /* Message.swift in Sources */,
 				81D8457A1C8930A500BBB43F /* AppDelegate.swift in Sources */,
 				81E675361C8A1EB1002D7AD8 /* FireBaseHelper.swift in Sources */,
+				810477CF1C8A5B4D0082A76C /* Seed.swift in Sources */,
 				81D845821C8930A500BBB43F /* EmojiCharades.xcdatamodeld in Sources */,
 				81E675341C8A1EA5002D7AD8 /* SignInHelper.swift in Sources */,
 				81E675381C8A3FF4002D7AD8 /* MainViewController.swift in Sources */,
@@ -500,6 +505,7 @@
 			files = (
 				81D845921C8930A500BBB43F /* EmojiCharadesTests.swift in Sources */,
 				81E675391C8A3FF4002D7AD8 /* MainViewController.swift in Sources */,
+				810477D01C8A5B4D0082A76C /* Seed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +793,7 @@
 				81E675271C8A1B60002D7AD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81E675291C8A1B60002D7AD8 /* Build configuration list for PBXNativeTarget "DataLayerTests" */ = {
 			isa = XCConfigurationList;
@@ -795,6 +802,7 @@
 				81E6752B1C8A1B60002D7AD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

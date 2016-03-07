@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Google
 
-class MainViewController : UIViewController {
+class MainViewController : UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Seed.testTwoUsersOneMessage()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
     }
-    
 }

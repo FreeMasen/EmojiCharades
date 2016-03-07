@@ -32,7 +32,7 @@ class Message {
     }
     
     func asDictionary() -> AnyObject {
-        let dictionary = ["id":Id, "sender":Sender, "reciever":Reciever, "Content":Content, "response":Response, "pointto":PointTo.rawValue]
+        let dictionary = ["sender":Sender, "reciever":Reciever, "Content":Content, "response":Response, "pointto":PointTo.rawValue]
         return dictionary
     }
 }
