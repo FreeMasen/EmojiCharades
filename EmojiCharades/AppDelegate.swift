@@ -13,7 +13,10 @@ import Google
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
+    
+    
     var window: UIWindow?
+    var FB = FireBaseHelper.ConnectToFirebase()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -33,14 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if (error == nil) {
-            
+            FB.authWithOAuthProvider("Google", parameters: nil, withCompletionBlock: nil)
         } else {
-            print("\(error.localizedDescription)")
+            print("Signin Error: \(error.localizedDescription)")
         }
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
-        
+        FB.removeAllObservers()
+        FB.unauth()
     }
     
     func applicationWillResignActive(application: UIApplication) {

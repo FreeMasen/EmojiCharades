@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Message {
+class Message : Equatable {
     let Id: Int
     let Sender: String
     let Reciever: String
@@ -17,11 +17,21 @@ class Message {
     var PointTo: Score = .NotYetScored
     
     init(sender: String, reciever: String, content: String) {
-        Id = 0
+        Id = Int(NSDate().timeIntervalSince1970*1000000)
         Sender = sender
         Reciever = reciever
         Content = content
     }
+    
+    init(id: Int, sender: String, reciever: String, content: String, response: String, pointTo: Score) {
+        Id = id
+        Sender = sender
+        Reciever = reciever
+        Content = content
+        Response = response
+        PointTo = pointTo
+    }
+    
     
     func scoreMessage(responseCorrect: Bool) {
         if responseCorrect {
@@ -32,9 +42,16 @@ class Message {
     }
     
     func asDictionary() -> AnyObject {
-        let dictionary = ["sender":Sender, "reciever":Reciever, "Content":Content, "response":Response, "pointto":PointTo.rawValue]
+        let dictionary = ["sender":Sender, "reciever":Reciever, "content":Content, "response":Response, "pointTo":PointTo.rawValue]
         return dictionary
     }
+    
+
+
+}
+
+func ==(lhs: Message, rhs: Message) -> Bool {
+    return lhs.Id == rhs.Id
 }
 
 enum Score : Int{

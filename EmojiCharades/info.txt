@@ -1,0 +1,15 @@
+Welcome to Emoji Charades!
+
+To participate you first need to sign in with your gmail account.
+
+Once signed in you can send a message to any other gmail users.
+
+Messages should only contain emoji, so the reciever can guess what you were trying to say.
+
+for example: If I sent you "😎👈💞🍕" you would want to replay "I love pizza"
+
+Once you respond, I get to decided if you answered correctly or not.
+
+If you did, you get a point, if not I get a point.
+
+Now sign in and get started.
