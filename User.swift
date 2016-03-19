@@ -34,6 +34,7 @@ class User {
         Name = googleUser.profile.name
         GlobalScore = 0
         Messages = [Message]()
+        Messages.append(Message(sender: "EmoJim", reciever: self.UserName, content: "😎👈💞🍕"))
     }
     
     //returns the object as a dictionary to hand over to FireBase
@@ -56,7 +57,7 @@ class User {
         oldMessage = message
     }
     
-    func removeMessage(messageID: Int) {
+    func removeMessage(messageID: UInt) {
         let shorterList = Messages.filter { $0.Id != messageID }
         self.Messages = shorterList
     }

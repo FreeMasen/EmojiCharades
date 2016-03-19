@@ -14,8 +14,12 @@ class SentMsgsViewController: UITableViewController {
     override func viewDidLoad() {
         parentView = self.parentViewController as? TabViewController
         user = parentView!.user!
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateView"), name: "userChange", object: nil)
     }
-
+    
+    func updateView() {
+        self.tableView.reloadData()
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return user!.sent().count
@@ -55,8 +59,17 @@ class recievedViewController: UITableViewController {
     override func viewDidLoad() {
         parentView = self.parentViewController as? TabViewController
         user = parentView!.user!
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateView"), name: "userChange", object: nil)
     }
     
+    func updateView() {
+        self.tableView.reloadData()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        currentSelection = indexPath.row
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let tableUser = user {
             return tableUser.recieved().count
@@ -96,6 +109,11 @@ class UnreadViewController: UITableViewController {
     override func viewDidLoad() {
         parentView = self.parentViewController as? TabViewController
         user = parentView!.user!
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateView"), name: "userChange", object: nil)
+    }
+    
+    func updateView() {
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {

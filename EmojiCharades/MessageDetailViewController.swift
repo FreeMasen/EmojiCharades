@@ -13,7 +13,17 @@ class MessageDetailViewController: UIViewController {
     @IBOutlet weak var gradeLabel: UILabel!
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupView()
+        let tap = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        view.addGestureRecognizer(tap)
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        swipeDown.direction = .Down
+        view.addGestureRecognizer(swipeDown)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setupView() {
@@ -119,6 +129,7 @@ class MessageDetailViewController: UIViewController {
             if grade.on {
                 message?.PointTo = .Reciever
                 FireBaseHelper.insertNewMessage(message!)
+//                FireBaseHelper.updateGloablScore() 
             } else {
                 message?.PointTo = .Sender
                 FireBaseHelper.insertNewMessage(message!)

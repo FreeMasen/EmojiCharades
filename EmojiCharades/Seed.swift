@@ -41,3 +41,4 @@ class Seed {
         FireBaseHelper.insertNewMessage(needingGrade)
     }
 }
+

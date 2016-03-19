@@ -5,7 +5,6 @@ class MainViewController : UIViewController, GIDSignInUIDelegate {
     var guser: GIDGoogleUser? {
         didSet {
             if self.guser != nil {
-                print(guser?.profile.email)
                 setUserAsync()
             }
         }
@@ -26,38 +25,50 @@ class MainViewController : UIViewController, GIDSignInUIDelegate {
         self.addObserver(self, forKeyPath: "user", options: .New , context: nil)
     }
     
+    
     deinit {
         self.removeObserver(self, forKeyPath: "user")
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "SignIn", object: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Seed.seedWithMessageTypes()
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
+        let notif = NSNotificationCenter.defaultCenter()
+        notif.addObserver(self, selector: Selector("gidAssigned"), name: "SignIn", object: nil)
+        
+    }
+    
+    func gidAssigned() {
         guser = GIDSignIn.sharedInstance().currentUser
     }
     
     override func viewDidAppear(animated: Bool) {
         resetErrors()
         super.viewDidAppear(animated)
-        guser = GIDSignIn.sharedInstance().currentUser
     }
     
     @IBAction func signUp(sender: UIButton) {
         resetErrors()
+        FireBaseHelper.insertNewUser(User(googleUser: guser!))
     }
     
     @IBAction func signIn(sender: UIButton) {
         resetErrors()
         GIDSignIn.sharedInstance().signIn()
-        guser = GIDSignIn.sharedInstance().currentUser
     }
     
     func setUserAsync() {
         let email = guser!.profile.email
-            FireBaseHelper.getUser(email) { u in
+        do {
+            try FireBaseHelper.getUser(email) { u in
                 self.user = u
+            }
+        }catch {
+            errorLabel.hidden = false
+            errorLabel.text = "Unable to find user"
+            signUp.hidden = false
+            signUp.enabled = true
         }
     }
     

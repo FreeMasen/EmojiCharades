@@ -7,7 +7,8 @@ class ProfileViewController: UIViewController {
     var user: User?
     var parentView: TabViewController?
     
-    override func viewDidLoad() {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         parentView = self.parentViewController as? TabViewController
         if let user = parentView!.user {
         username.text = "Username: \(user.UserName)"

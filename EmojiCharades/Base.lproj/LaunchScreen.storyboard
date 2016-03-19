@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +17,93 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Charades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCE-zd-QrS">
+                                <rect key="frame" x="143" y="215" width="245" height="73"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="57"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="78" y="194" width="245" height="73"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="😎💞🍕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RT-Cu-SAv">
+                                <rect key="frame" x="159" y="291" width="212" height="137"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Emoji" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui5-A2-Ifd">
+                                <rect key="frame" x="77" y="110" width="375" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="M6L-nh-w8j"/>
+                                    <constraint firstAttribute="height" secondItem="Ui5-A2-Ifd" secondAttribute="width" multiplier="1:4" id="RHx-90-w91"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="57"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M6L-nh-w8j"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="13" y="92" width="375" height="94"/>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="M6L-nh-w8j"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="mCE-zd-QrS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4hv-3O-L8B"/>
+                            <constraint firstItem="7RT-Cu-SAv" firstAttribute="top" secondItem="mCE-zd-QrS" secondAttribute="bottom" constant="24" id="8dR-jQ-KfU"/>
+                            <constraint firstItem="7RT-Cu-SAv" firstAttribute="top" secondItem="mCE-zd-QrS" secondAttribute="bottom" constant="3" id="BiV-2F-Ehm"/>
+                            <constraint firstItem="Ui5-A2-Ifd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Bww-Sq-de2"/>
+                            <constraint firstItem="mCE-zd-QrS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IrU-EL-baC"/>
+                            <constraint firstItem="Ui5-A2-Ifd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="69" id="Mgd-Te-Lm2"/>
+                            <constraint firstItem="Ui5-A2-Ifd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="90" id="Yt4-RF-cL0"/>
+                            <constraint firstItem="Ui5-A2-Ifd" firstAttribute="height" secondItem="Ui5-A2-Ifd" secondAttribute="width" multiplier="1:4" id="Zhc-aW-1Gx"/>
+                            <constraint firstItem="7RT-Cu-SAv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b5G-Cu-vSB"/>
+                            <constraint firstItem="mCE-zd-QrS" firstAttribute="top" secondItem="Ui5-A2-Ifd" secondAttribute="bottom" constant="11" id="eb1-PN-0ls"/>
+                            <constraint firstItem="7RT-Cu-SAv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jMZ-zb-puC"/>
+                            <constraint firstItem="Ui5-A2-Ifd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rm1-sp-IlO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bww-Sq-de2"/>
+                                <exclude reference="Mgd-Te-Lm2"/>
+                                <exclude reference="Yt4-RF-cL0"/>
+                                <exclude reference="rm1-sp-IlO"/>
+                                <exclude reference="4hv-3O-L8B"/>
+                                <exclude reference="IrU-EL-baC"/>
+                                <exclude reference="8dR-jQ-KfU"/>
+                                <exclude reference="BiV-2F-Ehm"/>
+                                <exclude reference="b5G-Cu-vSB"/>
+                                <exclude reference="jMZ-zb-puC"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Bww-Sq-de2"/>
+                                <include reference="Mgd-Te-Lm2"/>
+                                <include reference="IrU-EL-baC"/>
+                                <include reference="8dR-jQ-KfU"/>
+                                <include reference="jMZ-zb-puC"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Yt4-RF-cL0"/>
+                                <include reference="rm1-sp-IlO"/>
+                                <include reference="4hv-3O-L8B"/>
+                                <include reference="BiV-2F-Ehm"/>
+                                <include reference="b5G-Cu-vSB"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,16 +20,27 @@ class TabViewController: UITabBarController {
     func addMessageObserver(user: User) {
         let ref = FireBaseHelper.ConnectToFirebase().childByAppendingPath("users/\(user.UserName)/messages")
         ref.observeEventType(.ChildAdded, withBlock: { u in
-            FireBaseHelper.processMessageUpdate(u, user: self.user!)
+            do {
+            try FireBaseHelper.processMessageUpdate(u, user: self.user!)
 
+            } catch {
+                print("TVC.ChildAdded: \(error)")
+            }
         })
         ref.observeEventType(.ChildChanged, withBlock: { u in
-            FireBaseHelper.processMessageUpdate(u , user: self.user!)
-
+            do {
+            try FireBaseHelper.processMessageUpdate(u , user: self.user!)
+            } catch {
+                print("TVC.ChildChanged: \(error)")
+            }
         })
         ref.observeEventType(.ChildRemoved, withBlock: { u in
-            FireBaseHelper.processMessageUpdate(u, user: self.user!)
-            })
+            do {
+                try FireBaseHelper.processMessageUpdate(u, user: self.user!)
+            } catch {
+                print("TVC.childRemoved: \(error)")
+            }
+        })
     }
     
     @IBAction func newMsg() {

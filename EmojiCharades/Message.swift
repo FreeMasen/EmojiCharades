@@ -9,7 +9,7 @@
 import Foundation
 
 class Message : Equatable {
-    let Id: Int
+    let Id: UInt
     let Sender: String
     let Reciever: String
     let Content: String
@@ -17,13 +17,14 @@ class Message : Equatable {
     var PointTo: Score = .NotYetScored
     
     init(sender: String, reciever: String, content: String) {
-        Id = Int(NSDate().timeIntervalSince1970*1000000)
+        
+        Id = UInt(NSDate().timeIntervalSince1970*1000000)
         Sender = sender
         Reciever = reciever
         Content = content
     }
     
-    init(id: Int, sender: String, reciever: String, content: String, response: String, pointTo: Score) {
+    init(id: UInt, sender: String, reciever: String, content: String, response: String, pointTo: Score) {
         Id = id
         Sender = sender
         Reciever = reciever

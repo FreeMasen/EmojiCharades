@@ -7,6 +7,20 @@ class NewMessageViewController: UIViewController {
     @IBOutlet weak var content: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        view.addGestureRecognizer(tap)
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
+        swipeDown.direction = .Down
+        view.addGestureRecognizer(swipeDown)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    
     @IBAction func addMessage(sender: AnyObject) {
         if validateForm() {
             let username = SignInHelper.removeSpecialChars(reciever.text!)
@@ -18,7 +32,7 @@ class NewMessageViewController: UIViewController {
 
     func validateForm() -> Bool{
         var status = true
-        if (reciever.text == "") && !(reciever.text!.containsString("@")) && !(reciever.text!.containsString(".com")) {
+        if (reciever.text == "") || !(reciever.text!.containsString("@")) || !(reciever.text!.containsString(".com")) {
             submitButton.setTitle("Email address not formatedd correctly", forState: .Normal)
             reciever.becomeFirstResponder()
             status = false
