@@ -1,16 +1,15 @@
 import UIKit
 
-class MessageDetailViewController: UIViewController {
+class MessageDetailViewController: UIViewController, UITextViewDelegate {
     var message: Message?
     var username: String?
     
     @IBOutlet weak var who: UILabel!
     @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var response: UITextField!
-    @IBOutlet weak var responseLabel: UILabel!
     @IBOutlet weak var grade: UISwitch!
     @IBOutlet weak var action: UIButton!
     @IBOutlet weak var gradeLabel: UILabel!
+    @IBOutlet weak var response: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +31,12 @@ class MessageDetailViewController: UIViewController {
         } else {
             if message?.Sender == username {
                 grading()
-            } else  {
+            } else {
+                if message?.Response.characters.count > 0 {
                 responding()
+                } else {
+                    completed()
+                }
             }
         }
         gradeLabel.hidden = grade.hidden
@@ -43,20 +46,19 @@ class MessageDetailViewController: UIViewController {
         self.navigationItem.title = "Respond to Message"
         self.view.tag = 1
         if let m = message {
-        who.text = "From: \(m.Sender)"
-        content.text = "Message: \(m.Content)"
-        
-        
-        grade.enabled = false
-        grade.hidden = true
-        
-        
-        action.hidden = false
-        action.setTitle("Submit Response", forState: .Normal)
-        
-        response.hidden = false
-        responseLabel.hidden = true
-    }
+            who.text = "From: \(m.Sender)"
+            content.text = "Message: \(m.Content)"
+            
+            
+            grade.enabled = false
+            grade.hidden = true
+            
+            
+            action.hidden = false
+            action.setTitle("Submit Response", forState: .Normal)
+            
+            response.editable = true
+        }
     }
     
     func grading() {
@@ -65,15 +67,14 @@ class MessageDetailViewController: UIViewController {
         if let m = message {
             who.text = "To: \(m.Reciever)"
             content.text = "Message: \(m.Content)"
-            responseLabel.text = "Response: \(m.Response)"
+            response.text = " \(m.Response)"
             
             grade.enabled = true
             grade.hidden = false
             
             action.hidden = true
             
-            response.hidden = true
-            responseLabel.hidden = false
+            response.allowsEditingTextAttributes = false
             
             action.hidden = false
             action.setTitle("Submit Grade", forState: .Normal)
@@ -87,28 +88,26 @@ class MessageDetailViewController: UIViewController {
             if message?.Sender == username {
                 who.text = "To: \(m.Reciever)"
                 content.text = "Message: \(m.Content)"
-                responseLabel.text = "Response: \(m.Response)"
+                response.text = " \(m.Response)"
                 
                 grade.setOn(message?.PointTo == .Reciever, animated: false)
                 grade.enabled = false
                 grade.hidden = false
                 
                 action.hidden = true
-                response.hidden = true
-                responseLabel.hidden = false
+                
+                response.editable = false
                 
             } else if message?.Reciever == username {
                 who.text = "From: \(m.Reciever)"
                 content.text = "Message: \(m.Content)"
-                responseLabel.text = "Response: \(m.Response)"
+                response.text = " \(m.Response)"
                 
                 grade.setOn(m.PointTo == .Reciever, animated: false)
                 grade.enabled = false
                 grade.hidden = false
                 
                 action.hidden = true
-                response.hidden = true
-                responseLabel.hidden = false
             }
         }
     }
@@ -129,7 +128,6 @@ class MessageDetailViewController: UIViewController {
             if grade.on {
                 message?.PointTo = .Reciever
                 FireBaseHelper.insertNewMessage(message!)
-//                FireBaseHelper.updateGloablScore() 
             } else {
                 message?.PointTo = .Sender
                 FireBaseHelper.insertNewMessage(message!)

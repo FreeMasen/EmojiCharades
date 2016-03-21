@@ -28,7 +28,7 @@ class SentMsgsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let messages = user!.sent()
         let cell = tableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
-        cell.sender.text = messages[indexPath.row].Sender
+        cell.sender.text = "To: \(messages[indexPath.row].Sender) From: \(messages[indexPath.row].Reciever)"
         cell.content.text = messages[indexPath.row].Content
         cell.score.text = messages[indexPath.row].PointTo.rawValue.description
         return cell
@@ -80,7 +80,7 @@ class recievedViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let messages = user!.recieved()
         let cell = tableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
-        cell.sender.text = messages[indexPath.row].Sender
+        cell.sender.text = "To: \(messages[indexPath.row].Sender) From: \(messages[indexPath.row].Reciever)"
         cell.content.text = messages[indexPath.row].Content
         cell.score.text = messages[indexPath.row].PointTo.rawValue.description
         return cell
@@ -131,7 +131,7 @@ class UnreadViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let messages = user!.unread()
         let cell = tableView.dequeueReusableCellWithIdentifier("messageCell") as! MessageCell
-        cell.sender.text = messages[indexPath.row].Sender
+        cell.sender.text = "To: \(messages[indexPath.row].Sender) From: \(messages[indexPath.row].Reciever)"
         cell.content.text = messages[indexPath.row].Content
         cell.score.text = messages[indexPath.row].PointTo.rawValue.description
         return cell
